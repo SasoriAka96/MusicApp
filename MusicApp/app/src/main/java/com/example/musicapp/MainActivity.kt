@@ -85,6 +85,7 @@ fun MusicApp() {
 @Composable
 fun VerticalScreenComposition() {
     var play by remember { mutableStateOf(false) }
+
     Column(
         Modifier
             .fillMaxWidth()
@@ -93,12 +94,38 @@ fun VerticalScreenComposition() {
         horizontalAlignment = Alignment.CenterHorizontally,
 
         ) {
+
+
         Column(
             Modifier
                 .fillMaxWidth()
                 .padding(top = 200.dp)
                 .height(350.dp)
         ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 50.dp)
+                    .padding(end = 50.dp)
+                    .padding(bottom = 20.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ){
+                Image(
+                    painter = painterResource(R.drawable.sharealtsquare),
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
+                )
+                Image(
+                    painter = painterResource(R.drawable.microphonealt),
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
+                )
+                Image(
+                    painter = painterResource(R.drawable.image),
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
             Image(
                 painter = painterResource(R.drawable.fallenstars),
                 contentDescription = null,
@@ -109,6 +136,7 @@ fun VerticalScreenComposition() {
                     .border(2.dp, Color.White)
             )
         }
+
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -122,6 +150,7 @@ fun VerticalScreenComposition() {
                 modifier = Modifier
                     .padding(top = 20.dp)
                     .align(Alignment.CenterHorizontally)
+
             )
             Text(
                 fontSize = 15.sp,
@@ -184,23 +213,23 @@ fun VerticalScreenComposition() {
             Image(
                 painter = painterResource(R.drawable.stepbackward),
                 contentDescription = null,
-                modifier = Modifier.size(40.dp)
+                modifier = Modifier.size(35.dp)
             )
             Image(
                 painter = painterResource(
-                    if (play) R.drawable.pausecircle else  R.drawable.playcircle
+                    if (play) R.drawable.pausecircle else R.drawable.playcircle
                 ),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(40.dp)
-                     .clickable{
+                    .size(45.dp)
+                    .clickable {
                         play = !play
-            }
+                    }
             )
             Image(
                 painter = painterResource(R.drawable.stepforward),
                 contentDescription = null,
-                modifier = Modifier.size(40.dp)
+                modifier = Modifier.size(35.dp)
 
             )
         }
