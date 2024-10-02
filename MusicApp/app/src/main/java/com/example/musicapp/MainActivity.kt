@@ -12,17 +12,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialogDefaults.containerColor
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
@@ -76,9 +73,7 @@ fun MusicApp() {
         else -> {
             VerticalScreenComposition()
         }
-
     }
-
 
 }
 
@@ -95,37 +90,45 @@ fun VerticalScreenComposition() {
 
         ) {
 
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 150.dp)
+                .padding(start = 50.dp)
+                .padding(end = 50.dp),
+            verticalAlignment = Alignment.CenterVertically,
+
+            ) {
+
+            Image(
+                painter = painterResource(R.drawable.sharealtsquare),
+                contentDescription = null,
+                modifier = Modifier.size(20.dp)
+
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Slider(
+                colors = SliderDefaults.colors(
+                    thumbColor = Color.White,
+                    activeTrackColor = Color.White,
+                    inactiveTrackColor = Color.Gray
+                ),
+                value = 0.75f,
+                onValueChange = {},
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .width(152.dp)
+                    .height(20.dp)
+            )
+        }
 
         Column(
             Modifier
                 .fillMaxWidth()
-                .padding(top = 200.dp)
+                .padding(top = 40.dp)
                 .height(350.dp)
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 50.dp)
-                    .padding(end = 50.dp)
-                    .padding(bottom = 20.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ){
-                Image(
-                    painter = painterResource(R.drawable.sharealtsquare),
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp)
-                )
-                Image(
-                    painter = painterResource(R.drawable.microphonealt),
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp)
-                )
-                Image(
-                    painter = painterResource(R.drawable.image),
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp)
-                )
-            }
+
             Image(
                 painter = painterResource(R.drawable.fallenstars),
                 contentDescription = null,
@@ -148,7 +151,7 @@ fun VerticalScreenComposition() {
                 color = Color.White,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
-                    .padding(top = 20.dp)
+                    .padding(top = 30.dp)
                     .align(Alignment.CenterHorizontally)
 
             )
@@ -163,10 +166,29 @@ fun VerticalScreenComposition() {
 
         }
         Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 50.dp)
+                .padding(end = 50.dp),
+
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Image(
+                painter = painterResource(R.drawable.music),
+                contentDescription = null,
+                modifier = Modifier.size(15.dp)
+            )
+            Image(
+                painter = painterResource(R.drawable.image),
+                contentDescription = null,
+                modifier = Modifier.size(15.dp)
+            )
+        }
+
+        Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-            //.padding(start = 49.dp,top = 10.dp)
         ) {
             Text(
                 fontSize = 13.sp,
@@ -182,7 +204,7 @@ fun VerticalScreenComposition() {
                 color = Color.White,
                 modifier = Modifier
                     .padding(top = 20.dp)
-                    .padding(start = 295.dp)
+                    .padding(start = 298.dp)
             )
         }
 
@@ -239,5 +261,173 @@ fun VerticalScreenComposition() {
 
 @Composable
 fun LandscapeScreenComposition() {
+    var play by remember { mutableStateOf(false) }
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .background(color = Color.Black),
+        horizontalAlignment = Alignment.CenterHorizontally,
 
+        ) {
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp)
+                .padding(start = 100.dp)
+                .padding(end = 100.dp),
+            verticalAlignment = Alignment.CenterVertically,
+
+            ) {
+
+            Image(
+                painter = painterResource(R.drawable.sharealtsquare),
+                contentDescription = null,
+                modifier = Modifier.size(20.dp)
+
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Slider(
+                colors = SliderDefaults.colors(
+                    thumbColor = Color.White,
+                    activeTrackColor = Color.White,
+                    inactiveTrackColor = Color.Gray
+                ),
+                value = 0.75f,
+                onValueChange = {},
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .width(152.dp)
+                    .height(20.dp)
+            )
+        }
+
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .padding(top = 10.dp)
+                .height(200.dp)
+        ) {
+
+            Image(
+                painter = painterResource(R.drawable.fallenstars),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(200.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .clip(RoundedCornerShape(4.dp))
+                    .border(2.dp, Color.White)
+            )
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.CenterHorizontally)
+        ) {
+            Text(
+                fontSize = 13.sp,
+                text = "Fallen Star",
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .align(Alignment.CenterHorizontally)
+            )
+            Text(
+                fontSize = 10.sp,
+                text = "The neighbourhood",
+                color = Color.White,
+                modifier = Modifier
+                    .padding(top = 2.dp)
+                    .align(Alignment.CenterHorizontally)
+            )
+
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 20.dp)
+                .padding(start = 100.dp)
+                .padding(end = 100.dp),
+
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Image(
+                painter = painterResource(R.drawable.music),
+                contentDescription = null,
+                modifier = Modifier.size(15.dp)
+            )
+            Image(
+                painter = painterResource(R.drawable.stepbackward),
+                contentDescription = null,
+                modifier = Modifier.size(20.dp)
+            )
+            Image(
+                painter = painterResource(
+                    if (play) R.drawable.pausecircle else R.drawable.playcircle
+                ),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(20.dp)
+                    .clickable {
+                        play = !play
+                    }
+            )
+            Image(
+                painter = painterResource(R.drawable.stepforward),
+                contentDescription = null,
+                modifier = Modifier.size(20.dp)
+
+            )
+            Image(
+                painter = painterResource(R.drawable.image),
+                contentDescription = null,
+                modifier = Modifier.size(15.dp)
+            )
+
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            Text(
+                fontSize = 7.sp,
+                text = "0:55",
+                color = Color.White,
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .padding(start = 100.dp)
+            )
+
+            Text(
+                fontSize = 7.sp,
+                text = "3:44",
+                color = Color.White,
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .padding(start = 775.dp)
+            )
+
+        }
+        Slider(
+            colors = SliderDefaults.colors(
+                thumbColor = Color.White,
+                activeTrackColor = Color.White,
+                inactiveTrackColor = Color.Gray
+            ),
+            value = 0.25f,
+            onValueChange = {},
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(start = 90.dp, end = 90.dp)
+                .height(50.dp)
+
+        )
+
+
+    }
 }
