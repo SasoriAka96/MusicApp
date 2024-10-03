@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MusicAppXML</string>
+    <string name="titulo">Fallen Star</string>
+    <string name="grupo">The neighbourhood</string>
+    <string name="cancionTiempo">3:44</string>
+    <string name="comoVa">0:55</string>
+    <string name="descripcion_uno">fallenstars</string>
+    <string name="descripcion_dos">music</string>
+    <string name="descripcion_tres">image</string>
+    <string name="descripcion_cuatro">playcircle</string>
+    <string name="descripcion_cinco">stepforward</string>
+    <string name="descripcion_seis">stepbackward</string>
+    <string name="descripcion_siete">sharealtsquare</string>
+</resources>
