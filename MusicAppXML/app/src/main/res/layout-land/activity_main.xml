@@ -119,7 +119,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.783" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/play"
         android:layout_width="28dp"
         android:layout_height="22dp"
@@ -131,8 +131,9 @@
         app:layout_constraintStart_toEndOf="@+id/anterior"
         app:layout_constraintTop_toBottomOf="@+id/progresion"
         app:layout_constraintVertical_bias="0.412"
-        app:srcCompat="@android:drawable/ic_media_play"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:srcCompat="@drawable/playcircle"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:srcCompat="@drawable/playcircle" />
 
     <ImageView
         android:id="@+id/siguiente"
