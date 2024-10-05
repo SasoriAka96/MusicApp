@@ -24,7 +24,7 @@ Este proyecto me ha servido para entender el funcionamiento de las distintas vis
 ![App Screenshot](https://snipboard.io/0nawTt.jpg)
 
 
-## Authors
+## Autor
 
 - [@SasoriAka96](https://github.com/SasoriAka96)
 
